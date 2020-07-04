@@ -12,26 +12,26 @@ router.get('/', (req, res) => {
 })
 
 router.get('/:id', (req, res) => {
-       Orders.findById(req.params.id)
+	Orders.findById(req.params.id)
 		.exec()
 		.then(x => res.status(200).send(x))
 })
 
 //Restringir por roles: hasRoles(['admin', 'user'])
 router.post('/', isAuthenticated, (req, res) => {
-	const { _id } = req.user
+	const {_id} = req.user
 	Orders.create({...req.body, user_id: _id}).then(x => res.status(201).send(x))
 })
 
 router.put('/:id', isAuthenticated, (req, res) => {
-        Orders.findByIdAndUpdate(req.params.id, req.body)
+	Orders.findByIdAndUpdate(req.params.id, req.body)
 		.then(() => res.sendStatus(204))
 })
 
 router.delete('/:id', isAuthenticated, (req, res) => {
-        Orders.findOneAndDelete(req.params.id)
+	Orders.findOneAndDelete(req.params.id)
 		.exec()
-		.then( () => res.sendStatus(204))
+		.then(() => res.sendStatus(204))
 })
 
 module.exports = router
