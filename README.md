@@ -6,13 +6,10 @@ Creado por [Nicolas Schurmann](https://www.udemy.com/share/102XRmA0Edd11aRHo=/)
 Curso de Udemy JavaScript ES9, CSS3, HTML, NODEJS
 El cuso usa una API Rest Serverless con [Vercel](https://vercel.com) donde utiliza una Arqutectura de dos capas (cliente/servidor) [Mongodb]( https://www.mongodb.com) como base de datos.
 
-El programa es una negocio que posee comidas(Meals) donde se seleccionan para formar una lista de Ordenes(Orders) de las distintas comidas.
-### Carpeta API 
-Posee toda la logica del programa (Request - Response - Authorization). 
+El programa posee comidas(Meals) donde se seleccionan para formar una lista de Ordenes(Orders) de las distintas comidas.
 
-Vercel 
-1. Crear un directorio 'api' en el directorio raiz del proyecto. Por defecto no es necesario ninguna configuracion para desplegar funciones Serverless
-2. Crear archivo de configuracion now.json 
+### Configuracion Vercel
+1. Crear archivo de configuracion now.json 
 {
 	version: 2,
 	name: udemy_course,
@@ -23,11 +20,13 @@ Vercel
 		MONGODB_URI: @mongodb-uri
 	}
 }
+2. Debe poseer la carpeta 'api' en el directorio raiz del proyecto. Por defecto no es necesario ninguna configuracion para desplegar funciones Serverless
 3. Ejecutar npm init -y el cual crea package.json para asi agregar las dependencias(modules) a él.
 4. Instalar dependencias npm i -S express mongoose body-parser cors jsonwebtoken
 
 ### Contenido Carpetas
-1. Carpeta api
+1. Carpeta api 
+Posee toda la logica del programa (Request - Response - Authorization). 
 - index.js Contine conexión y modelado a mongodb a travez de mongoose, express para crear servidor local si es necesario y body-parser como middleware . CORS para Control de Acceso HTTP de las rutas
 
 2. Carpeta api -> auth
